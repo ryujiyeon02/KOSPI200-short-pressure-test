@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>KOSPI200 공매도 압력 가설 검정</title>
+<style>
+@page{size:A4;margin:14mm 15mm}
+body{font-family:Pretendard,'Apple SD Gothic Neo',sans-serif;font-size:9.6pt;line-height:1.55;color:#222;margin:0}
+h1{font-size:17pt;margin:0 0 2px;color:#111}
+.sub{color:#666;font-size:9pt;margin-bottom:10px;border-bottom:2px solid #982A2F;padding-bottom:6px}
+h2{font-size:11.5pt;color:#982A2F;margin:12px 0 4px}
+.tag{display:inline-block;font-size:8pt;padding:1px 6px;border-radius:3px;background:#F3E3E4;color:#982A2F;margin-left:6px;vertical-align:middle}
+.tag.new{background:#E4EEF6;color:#2F6DA3}
+table{border-collapse:collapse;width:100%;margin:4px 0 6px;font-size:9pt}
+th,td{border-bottom:1px solid #ddd;padding:3px 6px;text-align:right}
+th{background:#f5f5f5;font-weight:600}
+td:first-child,th:first-child{text-align:left}
+p{margin:3px 0}
+img{width:100%;margin:4px 0}
+.note{color:#666;font-size:8.4pt}
+.page{page-break-after:always}
+b.hl{color:#982A2F}
+</style></head><body>
+<div class="page">
+<h1>KOSPI200 공매도 압력 가설 검정</h1>
+<div class="sub">QUANTIFI 2026 여름방학 세션 3주차 · 개인 과제 · 류지연 · 분석기간 2010-01 ~ 2026-05</div>
+
+<h2>질문</h2>
+<p>Asquith & Meulbroek(1995, 가설 A)는 공매도잔고가 높은 종목이 이후 유의하게 부진하다고 봤고, Asquith·Pathak·Ritter(2005, 가설 B)는 그 패턴이 동일가중(EW)에서만 나타나고 시총가중(VW)에서는 사라진다고 스스로 반박했습니다. 한국 KOSPI200에서 고압력 종목(D10)의 다음 달 언더퍼폼이 VW에서도 살아남는지 검정했습니다.</p>
+
+<h2>제출 판정문 <span class="tag">원문 요약</span></h2>
+<p><b>프록시:</b> 주 프록시는 <b>대차거래잔고수량</b>. 헤지·차익·결제 목적 대차가 섞인 광의 지표지만 2010년부터 KOSPI200 거의 전 종목에 관측됩니다. 실제 공매도 포지션에 더 가까운 <b>차입공매도잔고수량</b>은 2016-06 이후에만 있고, 공시 임계값 때문에 월평균 34종목만 보고되어 보조 프록시로 두었습니다.</p>
+<p><b>분모:</b> 결산 항목의 상장주식수는 대부분 비어 있어 <code>시가총액(×10⁶) ÷ 원종가</code>로 역산했습니다. 수정종가를 쓰면 액면분할 전후로 비율이 깨지므로 원종가를 쓰고, 역산 주식수가 전월 대비 3배 넘게 변하면 결측 처리했습니다.</p>
+<p><b>금지기간:</b> 2011-08~11, 2020-03~2021-04, 2023-11~2025-03은 신호월이나 수익률 측정월이 걸리면 제외했습니다. 금지 구간은 약세장과 겹쳐 남겨 두면 "약세장엔 공매도에 정보가 없다"로 오독할 수 있기 때문입니다.</p>
+<table>
+<tr><th>프록시</th><th>기간</th><th>개월</th><th>EW 연환산</th><th>t_EW</th><th>VW 연환산</th><th>t_VW</th><th>판정</th></tr>
+<tr><td>대차거래잔고수량 (주)</td><td>2010-01~2026-05</td><td>159</td><td>-1.81%</td><td>-0.52</td><td>-12.21%</td><td>-2.42</td><td>A+ (VW 중심 유의)</td></tr>
+<tr><td>차입공매도잔고수량 (보조)</td><td>2016-06~2026-05</td><td>87</td><td>+12.67%</td><td>+2.82</td><td>-5.22%</td><td>-1.16</td><td>신호 없음</td></tr>
+</table>
+<p>VW 집중도 점검: 대차잔고 D10의 단일종목 최대 비중은 최대 42.57%로, 50%를 넘은 달은 없었습니다. 제출 결론은 "이 표본·프록시에서는 가설 A가 조건부로 더 타당하다"였습니다.</p>
+
+<h2>대표 차트</h2>
+<img src="../output/charts/hero_ew_vw_decomposition.png">
+</div>
+
+<div>
+<h2>제출 이후 보완 분석 <span class="tag new">포트폴리오 정리 중 추가</span></h2>
+<p>제출 판정은 판정표를 그대로 따랐지만, 포트폴리오로 정리하면서 "왜 VW에서만 유의한가"와 "그 결과가 특정 구간에 달려 있지 않은가"를 추가로 확인했습니다. 결론적으로 <b class="hl">A+ 판정은 정보우위의 증거로 쓰기에 약합니다.</b></p>
+
+<h2>1. EW와 VW 차이의 분해</h2>
+<p>U_VW − U_EW = (D10 VW − D10 EW) − (유니버스 VW − 유니버스 EW)로 쪼갤 수 있습니다.</p>
+<table>
+<tr><th>항목</th><th>연환산</th><th>t</th></tr>
+<tr><td>U_VW − U_EW</td><td>-10.40%p</td><td>-2.53</td></tr>
+<tr><td>① D10 안에서 대형주에 비중을 더 준 효과 (D10 VW − EW)</td><td>-3.32%p</td><td>-1.22</td></tr>
+<tr><td>② 유니버스 VW − EW (벤치마크 쪽, 빼는 항)</td><td>+7.08%p</td><td>+1.85</td></tr>
+<tr><td>참고: D10 VW 절대수익 / KOSPI200 유니버스 VW 절대수익</td><td>-0.02% / 12.20%</td><td></td></tr>
+</table>
+<p>차이의 약 2/3는 D10 종목이 아니라 벤치마크에서 나옵니다. 같은 기간 시총가중 KOSPI200이 동일가중보다 연 7.1%p 더 올랐는데, D10은 평균적으로 유니버스 시가총액의 6.8%만 차지해 초대형주 랠리를 거의 담지 못합니다. 따라서 VW 언더퍼폼의 상당 부분은 "대차잔고가 많은 종목이 정보에 의해 부진했다"기보다 "초대형주가 D10 밖에 있었다"는 크기 구성 효과일 수 있습니다.</p>
+
+<h2>2. 기간 강건성</h2>
+<table>
+<tr><th>구간</th><th>개월</th><th>EW 연환산 (t)</th><th>VW 연환산 (t)</th><th>판정표 결과</th></tr>
+<tr><td>전체 2010-01~2026-05</td><td>159</td><td>-1.8% (-0.52)</td><td>-12.2% (-2.42)</td><td>A+</td></tr>
+<tr><td>2026년 제외</td><td>154</td><td>-3.1% (-0.92)</td><td>-9.1% (-2.20)</td><td>A+</td></tr>
+<tr><td>마지막 금지 해제 이전 (~2025-03)</td><td>145</td><td>-2.9% (-0.91)</td><td>-7.2% (-1.71)</td><td>신호 없음</td></tr>
+<tr><td>2010~2015</td><td>67</td><td>-11.7% (-3.02)</td><td>-13.6% (-3.34)</td><td>A</td></tr>
+<tr><td>2016~2020</td><td>49</td><td>+4.2% (+0.84)</td><td>-3.4% (-0.51)</td><td>신호 없음</td></tr>
+<tr><td>2021~2026</td><td>43</td><td>+6.7% (+0.69)</td><td>-20.1% (-1.26)</td><td>신호 없음</td></tr>
+</table>
+<p>강한 신호는 2010~2015년에 몰려 있고 EW·VW 모두 유의했습니다(가설 A 형태). 2016년 이후에는 어느 쪽도 유의하지 않습니다. 전체 기간의 VW 유의성은 공매도 재개 이후 14개월, 특히 반도체 초대형주가 급등한 2026-04 한 달(U_VW −38%p)에 크게 의존합니다. "기간 의존적이고 드물다"는 가설 B의 지적이 한국에서도 성립할 여지가 큽니다.</p>
+
+<h2>수정 결론</h2>
+<p>대차잔고 기준 고압력 종목의 다음 달 부진은 2010년대 초반에는 뚜렷했지만 이후에는 확인되지 않습니다. 전체 기간 VW 유의성은 벤치마크의 초대형주 쏠림과 최근 몇 달에 기대고 있어, 판정은 <b>"조건부 A"가 아니라 "기간 의존적, 결론 유보"</b>에 가깝습니다. 다음 단계는 (1) 벤치마크를 D10과 같은 크기 분위의 종목으로 맞춘 비교, (2) 차입공매도잔고의 공시 임계값 미만 종목을 0이 아닌 결측으로 처리한 민감도 분석입니다.</p>
+<p class="note">데이터: FnGuide DataGuide(수정주가·원종가·시가총액·KOSPI200 편입여부·대차거래잔고·차입공매도잔고). 원본은 저장소에 포함하지 않습니다. 코드: github 저장소 src/short_pressure_analysis.py, src/build_portfolio_charts.py.</p>
+</div>
+</body></html>
