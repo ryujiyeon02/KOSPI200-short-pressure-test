@@ -18,6 +18,19 @@
 - **B:** VW와 EW의 차이 -10.4%p 중 D10 내부에서 대형주에 비중을 더 준 효과는 -3.3%p뿐이고, 나머지 -7.1%p는 **벤치마크(KOSPI200 VW가 EW보다 연 7.1%p 높았던 것)**에서 나왔습니다. D10은 평균적으로 유니버스 시가총액의 6.8%만 차지해 초대형주 랠리를 담지 못합니다.
 - **C:** 실제 공매도잔고(차입공매도잔고수량)는 2016-06부터, 공시 임계값을 넘은 월평균 34종목만 보고됩니다. 대차잔고는 2010년부터 거의 전 종목이 관측됩니다.
 
+## English summary
+
+Do the KOSPI200 stocks under the heaviest **short-selling pressure** underperform the following month? (Summer 2026, individual QUANTIFI assignment.)
+
+- **Hypotheses:** two Asquith papers. The 1995 paper argues short sellers are informed; the 2005 paper argues the effect is self-defeating.
+- **Design:**
+  - Pressure: stock-lending balance ÷ shares outstanding.
+  - Portfolio: the top decile (D10) is formed at month-end *t*, and returns are measured in month *t+1*.
+  - Sample: signal months 2010-01 – 2026-05, 159 valid months.
+  - Short-sale ban periods are excluded.
+- **Submitted verdict:** insignificant equal-weighted, significant value-weighted, so the conditional hypothesis (A+) was accepted.
+- **Follow-up:** about two-thirds of the value-weighted significance came from the benchmark's mega-cap concentration, and there is no signal after 2016. Both results are kept; the conclusion is deferred as period-dependent.
+
 ## 한눈에 보기
 
 | 항목 | 내용 |
